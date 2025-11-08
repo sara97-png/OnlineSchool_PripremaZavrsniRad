@@ -1,0 +1,69 @@
+.header {
+    position: fixed; /*ne ide nigdi*/
+    top: 0; /*ovo troje da bude od ruba do ruba*/
+    left: 0;
+    right: 0;
+    background-color: var(--primary);
+    color: #fff;
+    z-index: 100; /*jer se mora pojaviti iznad svih elemenata, pošto je fixan element more se dogodit da se pojavi ispod*/
+    box-shadow: var(--shadow);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.logo {
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.nav {
+    display: flex;
+    gap: 16px;
+}
+
+.nav a {
+    text-decoration: none;
+    padding: 8px 10px; /*da dobijemo ovu kutijicu kada hoveramo*/
+    border-radius: 10px;
+}
+
+.nav a.active, .nav a:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    display: none;  /*sakrivamo menu button*/
+    cursor: pointer;
+}
+
+/*radimo u desktop first varijanti a dole ispod je za 768 i manje*/
+@media screen and (max-width: 768px) { 
+    .menu-btn {
+        display: block; /*da menu bude vidljiv(hamburger)*/
+    }
+
+    .nav {
+        display: none; /*sakrivamo nav za mobilne uređaje*/
+        position: absolute;
+        right: 4%; /*da nije slipljeno uz krajnji rub*/
+        top: 56px; /*da se pojavi ispod trake*/
+        background-color: var(--primary);
+        flex-direction: column; /*da navigacija bude u stupu*/
+        padding: 12px;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        }
+
+        .nav.open {
+            display: flex;       
+    }
+}
