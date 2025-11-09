@@ -15,7 +15,7 @@ export default function Header() {
           className="menu-btn"
           onClick={() => setOpen(!open)}
         >
-          ☰
+          ☰ 
         </button>
         <nav className={`nav ${open ? "open" : ""}`}>
           <NavLink

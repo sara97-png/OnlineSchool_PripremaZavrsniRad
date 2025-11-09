@@ -1,0 +1,19 @@
+.filters {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr; /*da svako zauzme mjesta koliko mu treba odnosno jednu frakciju*/
+    margin: 12px 0;
+}
+
+.subfilters {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /*ponavlja po svim retcima grida auto-fit - automatski posloži*/
+}
+
+.filters input, .filters select {
+    display: block;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
