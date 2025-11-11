@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import CourseCard from "../components/CourseCard";
 import {courses} from "../data/courses";
 
 
@@ -20,7 +21,7 @@ export default function Home() {
         <h2>Izdvojeni tečajevi</h2>
         <div className="grid">
             {featured.map(c => (
-                <p>{c.title} {c.category}</p>
+                <CourseCard key={c.id} course={c}/>
             ))}
         </div>
         </div>

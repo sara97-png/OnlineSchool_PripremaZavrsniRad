@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import CourseCard from "../components/CourseCard";
 import { courses } from "../data/courses";
 import "./Courses.css"
@@ -18,6 +19,33 @@ export default function Courses() {
   const [category, setCategory] = useState("Svi");
   const [level, setLevel] = useState("Svi");
   const [sort, setSort] = useState("price-asc");
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    //Dohvat query string parametara preko useSearchParams hooka
+    const urlCat = decodeURIComponent(searchParams.get("category"));
+    const urlQuery = decodeURIComponent(searchParams.get("query"));
+    const urlLevel = decodeURIComponent(searchParams.get("level"));
+    const urlSort = decodeURIComponent(searchParams.get("sort"));
+
+    if(urlCat && urlCat != "null") setCategory(urlCat);
+    if(urlQuery && urlQuery != "null") setQuery(urlQuery); //da ne vraća null, stavljamo ovaj && i provjeravamo
+    if(urlLevel && urlLevel != "null") setLevel(urlLevel);
+    if(urlSort && urlSort != "null") setSort(urlSort);
+  }, [])
+  
+
+  useEffect(() => {
+    let params = {};
+    if(category) params.category = category;
+    if(query) params.query = query;
+    if(level) params.level = level;
+    if(sort) params.sort = sort;
+    //Postavljanje query parametara preko useSearchParams hooka
+    setSearchParams(params, {replace: true});
+  
+  }, [query, category, level, sort])
 
   //Filtriranje i sortiranje kada se koristi - koristi useMemo radi performansi, useMemo će izračunati filtered (filtriranu listu), ali samo ako se promijeni query, category, level ili sort
   const filtered = useMemo(() => {
