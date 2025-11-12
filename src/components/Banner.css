@@ -1,0 +1,24 @@
+.banner {
+    width: 100%;
+    height: 450px;
+    margin-top: 56px; /*header je fiksan (isto s 56px) pa tribamo kompenzirati za njegovu visinu
+    - i stavljamo margin jer padding ne utječe na sliku kada imamo svojstvo background*/
+    background: transparent url("../assets/images/bannerpustinja.jpg") no-repeat scroll 0 0;
+    background-size: cover;
+    position: relative; /*da možemo centrirati tekst*/
+}
+
+.banner-text-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 0 20px;
+    color: #fff;
+    max-width: 60%; /*za povečat tekst*/
+    margin: 0 auto; /*mora zbog ovog poviš*/
+}
+
+

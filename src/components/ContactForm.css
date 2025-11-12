@@ -1,0 +1,35 @@
+.contact-form {
+    display: grid;
+    gap: 12px;
+    max-width: 520px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select, textarea, input:not([type="checkbox"]) {
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+}
+
+textarea {
+    min-height: 140px;
+}
+
+.error {
+    color: #c92a2a;
+    font-size: 12px;
+}
+
+input.field-error, select.field-error, textarea.field-error { /*ovo stavljamo ovako jer ne bi radilo inace (var ga overridea*/
+    border-color: #c92a2a;
+}
