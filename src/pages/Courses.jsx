@@ -53,7 +53,7 @@ export default function Courses() {
         (query ? c.title.toLowerCase().includes(query.toLowerCase()) : true) &&
     (category === "Svi" ? true : c.category === category) &&
     (level === "Svi" ? true : c.level === level)
-    );
+    ); //dobro će nam doć kaže on (prvo provjera je li postoji ako postoji onda upali te filtere, ako ga u JS ne želimo ubacit stavimo samo true)
 
     if(sort === "price-asc") result.sort((a, b) => a.price - b.price) //ako je ascending
     if(sort === "price-desc") result.sort((a, b) => b.price - a.price) //ako je descending
